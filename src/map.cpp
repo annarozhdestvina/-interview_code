@@ -14,7 +14,7 @@ public:
     int removeDuplicates(std::vector<int>& nums) {
         int new_i = 0;
 
-        for(int i = 0; i < nums.size() - 1; i++) {
+        for(int i = 0; i < static_cast<int>(nums.size() - 1); i++) {
             if(nums[i] != nums[i+1])  {
                 nums[new_i] = nums[i];
                 new_i++;

@@ -12,11 +12,15 @@ public:
         std::vector<int> solution1;
         int n = nums.size();
         solution1.reserve(n);
-    for(int i =0; i < nums.size(); i++) {
-        if(nums[i] != nums[i+1]) {
-            k++;
-            solution1.push_back(nums[i]);
-            counter++;
+    for(int i = 0; i < nums.size(); i++) {
+        if(i == n) {
+            break;
+        } else {
+            if(nums[i] != nums[i+1]) {
+                k++;
+                solution1.push_back(nums[i]);
+                counter++;
+            }
         }
     }
     nums = std::move(solution1);
@@ -37,7 +41,7 @@ public:
 
 int main() {
     Solution Ass;
-    std::vector<int> numbers {1, 1, 1, 2, 3};
+    std::vector<int> numbers {0, 1, 1, 2, 3};
     Ass.removeDuplicates(numbers);
 
     Ass.Print();
