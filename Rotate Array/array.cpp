@@ -3,8 +3,8 @@
 
 int main() {
 
-    std::vector<int> nums {1,2,3,4,5,6,7};
-    int k = 2;
+    std::vector<int> nums {1, 2, 3};
+    int k = 0;
     int current = 0;
     int length = nums.size();
     std::cout << "length = " << length << '\n';
@@ -14,7 +14,8 @@ int main() {
     std::cout << "length = "<<new2.size() <<'\n';
     std::cout << "cap = " << new2.capacity() << '\n';
 
-    for(int i = 0; i < 4; i++) {
+    if(length > 2) {
+        for(int i = 0; i < k; i++) {
         new2.push_back(nums[nums.size() - 1]);
         int p = nums[0];
         nums[0] = new2[i];
@@ -24,6 +25,13 @@ int main() {
             p = current;
         }
         nums[nums.size() - 1] = current;
+        }
+    } else if(length > 1) {
+        for(int i = 0; i < k; i++) {
+            current = nums[0];
+            nums[0] = nums[1];
+            nums[1] = current;
+        }
     }
      std::cout << "new2= \n";
 
