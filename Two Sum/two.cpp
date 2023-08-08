@@ -7,19 +7,54 @@ public:
         bool a = false;
         result.reserve(2);
         std::sort(nums.begin(), nums.end());
-        for (int index = 0; index < nums.size() - 1; index++) {
-            for(int j = index; j < nums.size() - 1; j++) {
-                if((nums[index] + nums[j]) == target) {
-                    result[0] = index;
-                    result[1] = j;
-                    std::cout << "[" << result[0] << ", " << result[1] << "]" << '\n';
-                    a = true;
-                    break;
-                }
-            }
-            if(a)
-                break;
+
+        int lt = 0; // первый, то есть левый
+        int rt = nums.size() - 1; // второй, то есть правый
+        while (lt != rt)
+        {       
+            int cursum = nums[lt] + nums[rt];
+        if (cursum < target)
+            lt++;
+        else if (cursum > target)
+            rt--;
+        else // if (cursum == sum)
+        {
+            std::cout << "indexes: " << lt << " " << rt << std::endl;
+            std::cout << "values: " << nums[lt] << " " << nums[rt] << std::endl;
+            return result;
         }
+    }
+    std::cout << "not found" << std::endl;
+
+        // int left = nums[0];
+        // int right = nums[nums.size() - 1];
+        // while(left != right) {
+        //     int cursum = nums[left] + nums[right];
+        //     if(cursum < target)
+        //         left++;
+        //     else if (cursum > target)
+        //         right--;
+        //     else if (cursum == target) {
+        //         result[0] = left;
+        //         result[1] = right;
+        //         std::cout << "[" << result[0] << ", " << result[1] << "]" << '\n';
+        //         return result;
+        //     }
+
+        // }
+        // for (int index = 0; index < nums.size() - 1; index++) {
+        //     for(int j = index; j < nums.size() - 1; j++) {
+        //         if((nums[index] + nums[j]) == target) {
+        //             result[0] = index;
+        //             result[1] = j;
+        //             std::cout << "[" << result[0] << ", " << result[1] << "]" << '\n';
+        //             a = true;
+        //             break;
+        //         }
+        //     }
+        //     if(a)
+        //         break;
+        // }
 
         return result;
     }
