@@ -15,6 +15,7 @@ int main() {
     std::getline(std::cin, stones);
 
     std::set<char> variants {jewelry.begin(), jewelry.end()};
+    // std::set<char> jetset {}
     
     std::map<char, int> myMap;
     for(int i=0; i < stones.size(); i++) {
@@ -25,23 +26,33 @@ int main() {
         myMap.at(stones[i]) += 1;
     }
 
-
     std::cout <<'\n';
     for(auto el : myMap)
         std::cout << el.first << ' ' << el.second <<'\n';
 
     int counter =0;
-    for(auto el : myMap) {
-        for(int i=0; i < jewelry.size(); i++) {
-            if(el.first == jewelry[i]) {
-                std::cout << "counter" << counter <<'\n';
-                counter += el.second;
-                std::cout << el.first << el.second <<'\n';
-            }
-        }
-    }
+    // for(auto el : myMap) {
+    //     for(int i=0; i < jewelry.size(); i++) {
+    //         if(el.first == jewelry[i]) {
+    //             std::cout << "counter" << counter <<'\n';
+    //             counter += el.second;
+    //             std::cout << el.first << el.second <<'\n';
+    //         }
+    //     }
+    // }
+    int counter2 =0;
+
+ 
+
+    for(auto el : myMap) 
+        if (variants.find(el.first) != variants.end()) 
+            counter2 += el.second;
 
 
-    std::cout << "counter = "<< counter << '\n';
+      
+
+
+
+    std::cout << "counter2 = "<< counter2 << '\n';
     return 0;
 }
