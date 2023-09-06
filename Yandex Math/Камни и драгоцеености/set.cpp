@@ -33,7 +33,7 @@ int main() {
     int counter =0;
     for(auto el : myMap) {
         for(int i=0; i < jewelry.size(); i++) {
-            if(myMap.find(stones[i])->first == stones[i]) {
+            if(el.first == jewelry[i]) {
                 std::cout << "counter" << counter <<'\n';
                 counter += el.second;
                 std::cout << el.first << el.second <<'\n';
